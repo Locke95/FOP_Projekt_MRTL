@@ -26,9 +26,27 @@ public class A<T> {
 	 * @throws IllegalArgumentException
 	 *             if arr is null
 	 */
-	public void invertTriples(T[] arr) throws IllegalArgumentException {
-		// TODO Your task
-		return;
+	public void invertTriples(T[] arr) throws IllegalArgumentException
+	{
+		if(arr == null)
+		{
+			throw new IllegalArgumentException();
+		}
+		invertTriplesHelper(arr, 0);
+	}
+	
+	//Ändern
+	
+	public void invertTriplesHelper(T[] arr, int index)
+	{
+		if(arr.length <= 2)
+		{
+			return;
+		}
+		else 
+		{
+			
+		}
 	}
 
 	/**
