@@ -133,7 +133,8 @@ public class C<T> {
 	 * @return the list without the last element
 	 */
 	public ListItem<T> removeLast(ListItem<T> lst) {
-		if (lst == null) return null;
+		if (lst == null)
+			return null;
 		ListItem<T> curr = lst;
 		while (curr.next.next != null) {
 			curr = curr.next;
@@ -152,8 +153,18 @@ public class C<T> {
 	 * @return the inverted list
 	 */
 	public ListItem<T> invert(ListItem<T> lst) {
-		// TODO Your task
-		return null;
+		ListItem<T> prior = lst;
+		ListItem<T> curr = lst.next;
+		ListItem<T> nxt = lst.next.next;
+		if (curr == null)
+			return lst;
+		do {
+			curr.next = prior;
+			prior = curr;
+			curr = nxt;
+			nxt = curr.next;
+		} while (curr != null);
+		return prior;
 	}
 
 	/**
