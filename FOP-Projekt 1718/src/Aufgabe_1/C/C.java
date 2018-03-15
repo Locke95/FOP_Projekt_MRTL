@@ -1,5 +1,6 @@
 package Aufgabe_1.C;
 
+import java.lang.reflect.Array;
 import java.util.Comparator;
 
 import data.ListItem;
@@ -32,16 +33,61 @@ public class C<T> {
 	 * @return a combined Array with all elements of the two given arrays.
 	 */
 	public T[] combine(T[] arr1, T[] arr2, Comparator<T> cmp, Class<?> type) throws IllegalArgumentException {
-		/**
-		 * IllegalArgumentException: cmp null, arrays nicht nach cmp sortiert, type
-		 * null, Initialisierfehler arrays null-Referenz bei arrays: null zurückgeben
-		 */
-		if (cmp.equals(null) || type.equals(null)) {
-			throw new IllegalArgumentException(
-					"Either the comparator is null, the type is null, the arrays aren't sorted according to the comparator or there was an error with initialization of the arrays");
-		}
 
-		return null; // bei intialisierungsfehler arrays
+		if (cmp == null || type == null) {
+			throw new IllegalArgumentException("Comparator or type is null!");
+		}
+		if (!isSorted(arr1, cmp, 0) || !isSorted(arr2, cmp, 0)) {
+			throw new IllegalArgumentException("The arrays aren't sorted according to the comparator!");
+		}
+		if (arr1 == null && arr2 == null) {
+			return null;
+		}
+		if (arr1 == null)
+			return arr2;
+		if (arr2 == null)
+			return arr1;
+
+		T[] combined;
+		try {
+			combined = (T[]) Array.newInstance(type, arr1.length + arr2.length);
+		} catch (Exception ex) {
+			throw new IllegalArgumentException("Error while initializing array!");
+		}
+		return combineRec(combined, arr1, arr2, cmp, 0, 0);
+	}
+
+	private boolean isSorted(T[] arrx, Comparator<T> cmp, int offset) {
+		if (arrx == null)
+			return true;
+		if (offset + 1 == arrx.length)
+			return true;
+		if (cmp.compare(arrx[offset], arrx[offset + 1]) <= 0) {
+			return isSorted(arrx, cmp, offset + 1);
+		}
+		return false;
+	}
+
+	private T[] combineRec(T[] combined, T[] arr1, T[] arr2, Comparator<T> cmp, int offset1, int offset2) {
+		if (offset1 + offset2 == combined.length)
+			return combined;
+		if (offset1 + 1 == arr1.length) {
+			combined[offset1 + offset2] = arr2[offset2];
+			return combineRec(combined, arr1, arr2, cmp, offset1, offset2 + 1);
+		}
+		if (offset2 + 1 == arr2.length) {
+			combined[offset1 + offset2] = arr1[offset1];
+			return combineRec(combined, arr1, arr2, cmp, offset1 + 1, offset2);
+		}
+		int i = cmp.compare(arr1[offset1], arr2[offset2]);
+		if (i <= 0) {
+			combined[offset1 + offset2] = arr1[offset1];
+			return combineRec(combined, arr1, arr2, cmp, offset1 + 1, offset2);
+		} else if (i == 1) {
+			combined[offset1 + offset2] = arr2[offset2];
+			return combineRec(combined, arr1, arr2, cmp, offset1, offset2 + 1);
+		}
+		return null;
 	}
 
 	/**
