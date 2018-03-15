@@ -133,8 +133,13 @@ public class C<T> {
 	 * @return the list without the last element
 	 */
 	public ListItem<T> removeLast(ListItem<T> lst) {
-		// TODO Your task
-		return null;
+		if (lst == null) return null;
+		ListItem<T> curr = lst;
+		while (curr.next.next != null) {
+			curr = curr.next;
+		}
+		curr.next = null;
+		return lst;
 	}
 
 	/**
