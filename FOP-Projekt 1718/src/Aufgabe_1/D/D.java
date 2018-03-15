@@ -53,11 +53,13 @@ public class D<T> {
 	 * @return the list lst with elem added to the end
 	 */
 	public ListItem<T> insertLast(ListItem<T> lst, ListItem<T> elem) {
-		for (int i = 0; i <= lst.getSize(); i++) {
-
+		ListItem<T> curr = lst;
+		while (curr.next != null) {
+			curr = curr.next;
 		}
+		curr.next = elem;
 
-		return null;
+		return lst;
 	}
 
 	/**
@@ -74,8 +76,31 @@ public class D<T> {
 	 * @throws IllegalArgumentException
 	 */
 	public ListItem<T> removeSecMaxElement(ListItem<T> lst, Comparator<T> cmp) throws IllegalArgumentException {
-		// TODO Your task
-		return null;
+		if (cmp == null) {
+			throw new IllegalArgumentException("Comparator is null");
+
+		} else {
+			ListItem<T> curr = lst;
+			ListItem<T> curr2 = lst;
+			T secMaxElem = null;
+			T maxElem = curr.key;
+
+			while (curr.next != null) {
+				if (cmp.compare(curr.key, secMaxElem) > 0 && cmp.compare(curr.key, maxElem) < 0
+						&& cmp.compare(curr.key, curr.next.key) != 0)
+					secMaxElem = curr.key;
+				curr = curr.next;
+			}
+			while (curr2.next != null) {
+				if (curr2.key.equals(secMaxElem))
+					return lst.next;
+				if (curr2.next.key.equals(secMaxElem))
+					curr2.next = curr2.next.next;
+				curr2 = curr2.next;
+			}
+
+		}
+		return lst;
 	}
 
 	/**
