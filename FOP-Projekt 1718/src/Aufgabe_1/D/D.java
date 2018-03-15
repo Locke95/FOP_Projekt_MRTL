@@ -29,13 +29,20 @@ public class D<T> {
 	 *             if arr is null or Indices is invalid.
 	 */
 	public void switchElements(T[] arr, int ind1, int ind2) throws IllegalArgumentException {
-		// TODO Your task
+		if(arr[ind1].equals(null)||arr[ind2].equals(null)||ind1>=arr.length||ind2>=arr.length){
+		throw new IllegalArgumentException("Indizes nicht im Gültigkeitsbereich oder Nullreferenz an eimen der Indizes");
+		}		
+		else{
+		T stack=arr[ind1];
+		arr[ind1]=arr[ind2];
+		arr[ind2]=stack;
+	}
 		return;
 	}
 
 	/**
-	 * Die Methode fügt die Liste elem an das Ende von lst an und gibt das Ergebnis zurück. Implementieren Sie diese
-	 * Methode iterativ.
+	 * Die Methode fügt die Liste elem an das Ende von lst an und gibt das Ergebnis
+	 * zurück. Implementieren Sie diese Methode iterativ.
 	 * 
 	 * @param lst
 	 *            the list to work on
@@ -44,14 +51,18 @@ public class D<T> {
 	 * @return the list lst with elem added to the end
 	 */
 	public ListItem<T> insertLast(ListItem<T> lst, ListItem<T> elem) {
-		// TODO Your task
+		for (int i = 0; i <= lst.getSize(); i++) {
+
+		}
+
 		return null;
 	}
 
 	/**
-	 * Die Methode löscht das zweitgrößte Element aus der Eingabeliste. Ist dieses Element nicht enthalten, so ist es
-	 * bereits als gelöscht anzusehen. Falls für cmp eine null-Referenz übergeben wird, soll eine
-	 * IllegalArgumentException geworfen werden. Implementieren Sie diese Methode iterativ.
+	 * Die Methode löscht das zweitgrößte Element aus der Eingabeliste. Ist dieses
+	 * Element nicht enthalten, so ist es bereits als gelöscht anzusehen. Falls für
+	 * cmp eine null-Referenz übergeben wird, soll eine IllegalArgumentException
+	 * geworfen werden. Implementieren Sie diese Methode iterativ.
 	 *
 	 * @param lst
 	 *            the list to work on
@@ -66,11 +77,13 @@ public class D<T> {
 	}
 
 	/**
-	 * Für i = 1,2,3,... vertauscht die Methode die Schl�sselwerte an den Positionen 3i - 2 und 3i, d.h.: Das Element,
-	 * das vorher an Position 3i - 2 war, ist hinterher an Position 3i und umgekehrt. Ist kein komplettes Triple mehr
-	 * übrig, auf dem die Operation ausgeführt werden kann, so bricht die Methode ab und ist fertig. Falls eine
-	 * null-Referenz übergeben wird, soll eine IllegalArgumentException geworfen werden. Implementieren Sie diese
-	 * Methode rekursiv.
+	 * Für i = 1,2,3,... vertauscht die Methode die Schl�sselwerte an den Positionen
+	 * 3i - 2 und 3i, d.h.: Das Element, das vorher an Position 3i - 2 war, ist
+	 * hinterher an Position 3i und umgekehrt. Ist kein komplettes Triple mehr
+	 * übrig, auf dem die Operation ausgeführt werden kann, so bricht die Methode ab
+	 * und ist fertig. Falls eine null-Referenz übergeben wird, soll eine
+	 * IllegalArgumentException geworfen werden. Implementieren Sie diese Methode
+	 * rekursiv.
 	 * 
 	 * @param lst
 	 *            the list to work on
@@ -82,14 +95,17 @@ public class D<T> {
 	}
 
 	/**
-	 * Die Methode erhält eine Liste und gibt eine Liste von genau zwei Listen zurück, wobei alle Elemente an einer
-	 * ungeraden Position der Eingabeliste in der ersten Liste zu finden sind, alle Elemente der Eingabeliste mit einer
-	 * geraden Position in der zweiten Liste. Hierfür dürfen neue Listenelemente der Klasse ListItem<ListItem<T>>
-	 * erstellt werden. Implementieren Sie diese Methode rekursiv.
+	 * Die Methode erhält eine Liste und gibt eine Liste von genau zwei Listen
+	 * zurück, wobei alle Elemente an einer ungeraden Position der Eingabeliste in
+	 * der ersten Liste zu finden sind, alle Elemente der Eingabeliste mit einer
+	 * geraden Position in der zweiten Liste. Hierfür dürfen neue Listenelemente der
+	 * Klasse ListItem<ListItem<T>> erstellt werden. Implementieren Sie diese
+	 * Methode rekursiv.
 	 *
 	 * @param lst
 	 *            the list to split
-	 * @return a list of two lists where all list elements of the input list are located
+	 * @return a list of two lists where all list elements of the input list are
+	 *         located
 	 */
 	public ListItem<ListItem<T>> divideAlternatinglyIntoLists(ListItem<T> lst) {
 		// TODO Your task
@@ -97,10 +113,11 @@ public class D<T> {
 	}
 
 	/**
-	 * Die Methode erhält eine Liste und wandelt diese in ein Array um, d.h. genau alle Schlüsselwerte der Liste sind in
-	 * dem Array, welches zurückgegeben wird, in ursprünglicher Reihenfolge enthalten. Sind keine Schlüsselwerte in der
-	 * Liste enthalten, so soll ein Array der Länge null zurückgegeben werden. Implementieren Sie diese Methode
-	 * iterativ.
+	 * Die Methode erhält eine Liste und wandelt diese in ein Array um, d.h. genau
+	 * alle Schlüsselwerte der Liste sind in dem Array, welches zurückgegeben wird,
+	 * in ursprünglicher Reihenfolge enthalten. Sind keine Schlüsselwerte in der
+	 * Liste enthalten, so soll ein Array der Länge null zurückgegeben werden.
+	 * Implementieren Sie diese Methode iterativ.
 	 *
 	 * 
 	 * @param lst
