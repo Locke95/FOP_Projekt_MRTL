@@ -104,8 +104,22 @@ public class C<T> {
 	 * @return the list with the new head in front
 	 */
 	public ListItem<T> insertHead(ListItem<T> lst, ListItem<T> head) {
-		// TODO Your task
-		return null;
+		if (head == null) {
+			if (lst != null)
+				throw new IllegalArgumentException("head is null!");
+			else
+				return null;
+		}
+		insertHeadRec(lst, head);
+		return head;
+	}
+
+	private void insertHeadRec(ListItem<T> lst, ListItem<T> head) {
+		if (head.next == null) {
+			head.next = lst;
+			return;
+		}
+		insertHeadRec(lst, head.next);
 	}
 
 	/**
