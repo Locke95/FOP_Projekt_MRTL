@@ -15,8 +15,9 @@ import java.util.Comparator;
 public class D<T> {
 
 	/**
-	 * Die Methode vertauscht die Elemente an den zwei angegebenen Indizes. Falls f�r arr eine null-Referenz übergeben
-	 * wird oder einer der Indizes nicht in dem Array liegt, soll eine IllegalArgumentException geworfen werden.
+	 * Die Methode vertauscht die Elemente an den zwei angegebenen Indizes. Falls
+	 * f�r arr eine null-Referenz übergeben wird oder einer der Indizes nicht in dem
+	 * Array liegt, soll eine IllegalArgumentException geworfen werden.
 	 * Implementieren Sie diese Methode in konstanter Laufzeit.
 	 * 
 	 * @param arr
@@ -29,14 +30,15 @@ public class D<T> {
 	 *             if arr is null or Indices is invalid.
 	 */
 	public void switchElements(T[] arr, int ind1, int ind2) throws IllegalArgumentException {
-		if(arr[ind1].equals(null)||arr[ind2].equals(null)||ind1>=arr.length||ind2>=arr.length){
-		throw new IllegalArgumentException("Indizes nicht im Gültigkeitsbereich oder Nullreferenz an eimen der Indizes");
-		}		
-		else{
-		T stack=arr[ind1];
-		arr[ind1]=arr[ind2];
-		arr[ind2]=stack;
-	}
+		if (arr[ind1].equals(null) || arr[ind2].equals(null) || ind1 >= arr.length || ind2 >= arr.length || ind1 < 0
+				|| ind2 < 0) {
+			throw new IllegalArgumentException(
+					"Indizes nicht im Gültigkeitsbereich oder Nullreferenz an eimen der Indizes");
+		} else {
+			T stack = arr[ind1];
+			arr[ind1] = arr[ind2];
+			arr[ind2] = stack;
+		}
 		return;
 	}
 
