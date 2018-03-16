@@ -153,6 +153,17 @@ public class C<T> {
 	 * @return the inverted list
 	 */
 	public ListItem<T> invert(ListItem<T> lst) {
+		if (lst == null) {
+			return null;
+		}
+		if (lst.next == null) {
+			return lst;
+		}
+		if (lst.next.next == null) {
+			ListItem<T> rtrn = lst.next;
+			rtrn.next = lst;
+			return rtrn;
+		}
 		ListItem<T> prior = lst;
 		ListItem<T> curr = lst.next;
 		ListItem<T> nxt = lst.next.next;
