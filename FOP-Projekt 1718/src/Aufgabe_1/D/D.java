@@ -1,8 +1,10 @@
 package Aufgabe_1.D;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.Comparator;
 import data.ListItem;
 
-import java.util.Comparator;
 
 /**
  * Tasks of subproject 1.D
@@ -115,10 +117,33 @@ public class D<T> {
 	 * @param lst
 	 *            the list to work on
 	 * @return the list where all complete triples are inverted
+	 * @throws IllegalArgumentException
 	 */
-	public ListItem<T> invertTriples(ListItem<T> lst) {
-		// TODO Your task
-		return null;
+	public ListItem<T> invertTriples(ListItem<T> lst) throws IllegalArgumentException {
+		if (lst == null)
+			throw new IllegalArgumentException("Übergebene Liste == null");
+		ListItem<T> curr = lst;
+		helpInvertTriples(curr);
+		return lst;
+	}
+
+	/**
+	 * Hilfsfunktion von invertTriples. Führt die Rekursion durch.
+	 * 
+	 * @param curr
+	 * @throws Exception
+	 */
+	private void helpInvertTriples(ListItem<T> curr) {
+		if (curr.next == null || curr.next.next == null)
+			return;
+		if (curr.next.next != null) {
+			ListItem<T> stack = curr.next.next;
+			curr.next.next = curr;
+			curr.next.next = stack;
+		}
+		if (curr.next.next.next != null)
+			helpInvertTriples(curr.next.next.next);
+
 	}
 
 	/**
@@ -152,7 +177,14 @@ public class D<T> {
 	 * @return a array with all key values of the given list
 	 */
 	public T[] listIntoArray(ListItem<T> lst, Class<?> type) {
-		// TODO Your task
-		return null;
+		ListItem<T> curr=lst;
+		T[] arr = null;
+		int i=0;
+		while (lst.next != null) {
+			Array.set(arr,i, curr);
+			i++;
+			curr=curr.next;
+		}
+		return arr;
 	}
 }
