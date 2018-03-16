@@ -1,10 +1,8 @@
 package Aufgabe_1.D;
 
 import java.lang.reflect.Array;
-import java.util.Arrays;
 import java.util.Comparator;
 import data.ListItem;
-
 
 /**
  * Tasks of subproject 1.D
@@ -159,9 +157,28 @@ public class D<T> {
 	 * @return a list of two lists where all list elements of the input list are
 	 *         located
 	 */
-	public ListItem<ListItem<T>> divideAlternatinglyIntoLists(ListItem<T> lst) {
-		// TODO Your task
-		return null;
+	public ListItem<ListItem<T>> divideAlternatinglyIntoLists(ListItem<T> lst) {;
+		ListItem<T> left = lst;
+		ListItem<T> right = lst.next;
+		splitList(left);
+		splitList(right);
+		ListItem<ListItem<T>> first = new ListItem<ListItem<T>>(left);
+		ListItem<ListItem<T>> second=new ListItem<ListItem<T>>(left);
+		first.next=second;
+		return first;
+		
+	}
+	/**
+	 * Teilt die Eingabeliste in zwei indem nur jedes 2te Element genommen wird.
+	 * @param currList
+	 */
+	private void splitList(ListItem<T> currList) {
+		if (currList.next == null || currList.next.next == null)
+			return;
+		else {
+			currList.next = currList.next.next;
+			splitList(currList.next);
+		}
 	}
 
 	/**
@@ -177,13 +194,13 @@ public class D<T> {
 	 * @return a array with all key values of the given list
 	 */
 	public T[] listIntoArray(ListItem<T> lst, Class<?> type) {
-		ListItem<T> curr=lst;
+		ListItem<T> curr = lst;
 		T[] arr = null;
-		int i=0;
+		int i = 0;
 		while (lst.next != null) {
-			Array.set(arr,i, curr);
+			Array.set(arr, i, curr);
 			i++;
-			curr=curr.next;
+			curr = curr.next;
 		}
 		return arr;
 	}
