@@ -37,9 +37,6 @@ public class C<T> {
 		if (cmp == null || type == null) {
 			throw new IllegalArgumentException("Comparator or type is null!");
 		}
-		if (!isSorted(arr1, cmp, 0) || !isSorted(arr2, cmp, 0)) {
-			throw new IllegalArgumentException("The arrays aren't sorted according to the comparator!");
-		}
 		if (arr1 == null && arr2 == null) {
 			return null;
 		}
@@ -47,6 +44,10 @@ public class C<T> {
 			return arr2;
 		if (arr2 == null)
 			return arr1;
+		
+		if (!isSorted(arr1, cmp, 0) || !isSorted(arr2, cmp, 0)) {
+			throw new IllegalArgumentException("The arrays aren't sorted according to the comparator!");
+		}
 
 		T[] combined;
 		try {
@@ -59,7 +60,7 @@ public class C<T> {
 
 	private boolean isSorted(T[] arrx, Comparator<T> cmp, int offset) {
 		if (arrx == null)
-			return true;
+			throw new IllegalArgumentException("Array is empty!");
 		if (offset + 1 == arrx.length)
 			return true;
 		if (cmp.compare(arrx[offset], arrx[offset + 1]) <= 0) {
@@ -135,11 +136,10 @@ public class C<T> {
 	public ListItem<T> removeLast(ListItem<T> lst) {
 		if (lst == null)
 			return null;
-		ListItem<T> curr = lst;
-		while (curr.next.next != null) {
-			curr = curr.next;
+		while (lst.next.next != null) {
+			lst = lst.next;
 		}
-		curr.next = null;
+		lst.next = null;
 		return lst;
 	}
 
@@ -156,6 +156,7 @@ public class C<T> {
 		if (lst == null) {
 			return null;
 		}
+
 		if (lst.next == null) {
 			return lst;
 		}
@@ -172,8 +173,10 @@ public class C<T> {
 		do {
 			curr.next = prior;
 			prior = curr;
-			curr = nxt;
-			nxt = curr.next;
+				curr = nxt;
+			if (curr != null) {
+				nxt = curr.next;
+			}
 		} while (curr != null);
 		return prior;
 	}
