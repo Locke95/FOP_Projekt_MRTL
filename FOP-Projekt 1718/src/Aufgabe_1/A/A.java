@@ -30,7 +30,7 @@ public class A<T> {
 	{
 		if(arr == null)
 		{
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("arr ist null");
 		}
 		invertTriplesHelper(arr, 0);
 	}
@@ -144,7 +144,12 @@ public class A<T> {
 	 *             if arr or cmp is null
 	 */
 	public ListItem<ListItem<T>> arrayRunsToListOfLists(T[] arr, Comparator<T> cmp) throws IllegalArgumentException {
-		// TODO Your task
+		if(arr == null || cmp == null)
+		{
+			throw new IllegalArgumentException("arr oder cmp sind null");
+		}
 		return null;
+		
+		
 	}
 }
