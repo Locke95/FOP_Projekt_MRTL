@@ -19,7 +19,7 @@ public class ComparatorColor implements Comparator<GeometricModelElement> {
 	public int compare(GeometricModelElement elem1, GeometricModelElement elem2) throws IllegalArgumentException 
 	{
 		int comp = 0;
-		if(8 < elem1.getColorCode() && 0 > elem1.getColorCode() && 8 < elem2.getColorCode() && 0 > elem1.getColorCode())
+		if(8 < elem1.getColorCode() && 1 > elem1.getColorCode() && 8 < elem2.getColorCode() && 1 > elem2.getColorCode())
 		{
 			throw new IllegalArgumentException("Der übergebene Farbcode ist nicht definiert");
 		}

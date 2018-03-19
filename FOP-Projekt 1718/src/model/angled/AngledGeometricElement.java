@@ -10,8 +10,9 @@ import model.GeometricModelElement;
 public abstract class AngledGeometricElement extends GeometricModelElement {
 
 	@Override
-	protected void calculateMove(double xDirection, double yDirection) {
-
+	protected void calculateMove(double xDirection, double yDirection) 
+	{
+		
 	}
 
 	@Override
