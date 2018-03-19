@@ -98,7 +98,6 @@ public class D<T> {
 					curr2.next = curr2.next.next;
 				curr2 = curr2.next;
 			}
-			cmp.
 
 		}
 		return lst;
