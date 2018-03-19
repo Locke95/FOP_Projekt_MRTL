@@ -219,14 +219,16 @@ public class C<T> {
 	 */
 	public ListItem<T> arrayIntoList(T[] arr) throws IllegalArgumentException {
 		if (arr == null)
-			throw new IllegalArgumentException("head is null!");
+			throw new IllegalArgumentException("array is null!");
 		if (arr.length == 0) {
 			return null;
 		}
 		ListItem<T> lstbegin = new ListItem<T>(arr[0]);
 		ListItem<T> lstloop = lstbegin;
-		//for-schleife mit lstloop
-		//lstloop=lstloop.next
+		for (int i = 1; i < arr.length; i++){
+			lstloop.next = (ListItem<T>) arr[i];
+			lstloop = lstloop.next;
+		}
 		return lstbegin;
 	}
 }
