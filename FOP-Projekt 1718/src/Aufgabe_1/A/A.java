@@ -149,15 +149,13 @@ public class A<T> {
 			throw new IllegalArgumentException("arr oder cmp sind null");
 		}
 		ListItem<ListItem<T>> nlst = new ListItem<ListItem<T>>(null);
-		ListItem<T> einzelneLst = new ListItem<T>(arr[0]);
+		//ListItem<T> einzelneLst = new ListItem<T>(arr[0]);
 		for(int i = 0; i < arr.length; i++)
 		{
-			if(cmp.compare(arr[i], arr[i+1]) == -1)
+			while(cmp.compare(arr[i], arr[i+1]) == -1)
 			{
-				einzelneLst.next.insert(arr[i+1]);
-			}
-			else
-			{
+				//einzelneLst.next.insert(arr[i+1]);
+				ListItem<T> einzelneLst = new ListItem<T>(arr[i+1]);
 				
 			}
 		}

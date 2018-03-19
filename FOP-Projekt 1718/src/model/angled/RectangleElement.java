@@ -1,6 +1,7 @@
 package model.angled;
 
 import model.GeometricModelElement;
+import model.Point;
 
 /**
  * @author Tessa
@@ -8,7 +9,15 @@ import model.GeometricModelElement;
  */
 public class RectangleElement extends AngledGeometricElement
 {
-
+	/**
+	 * Constructor first point => lower left corner second point => upper right corner
+	 */
+	public RectangleElement(Point x, Point y)
+	{
+		
+		
+	}
+	
 	@Override
 	protected String getJSONClassName()
 	{

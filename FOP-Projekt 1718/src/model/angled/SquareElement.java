@@ -1,6 +1,7 @@
 package model.angled;
 
 import model.GeometricModelElement;
+import model.Point;
 
 /**
  * @author Tessa Crößmann
@@ -9,6 +10,12 @@ import model.GeometricModelElement;
 public class SquareElement extends AngledGeometricElement
 {
 
+	public SquareElement(Point x, Point y)
+	{
+		
+	}
+	
+	
 	@Override
 	protected String getJSONClassName()
 	{
