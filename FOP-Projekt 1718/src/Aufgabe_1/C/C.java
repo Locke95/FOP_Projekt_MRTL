@@ -44,7 +44,7 @@ public class C<T> {
 			return arr2;
 		if (arr2 == null)
 			return arr1;
-		
+
 		if (!isSorted(arr1, cmp, 0) || !isSorted(arr2, cmp, 0)) {
 			throw new IllegalArgumentException("The arrays aren't sorted according to the comparator!");
 		}
@@ -173,7 +173,7 @@ public class C<T> {
 		do {
 			curr.next = prior;
 			prior = curr;
-				curr = nxt;
+			curr = nxt;
 			if (curr != null) {
 				nxt = curr.next;
 			}
@@ -194,8 +194,14 @@ public class C<T> {
 	 * @return the combined list
 	 */
 	public ListItem<T> combineLists(ListItem<T> lst1, ListItem<T> lst2) {
-		// TODO Your task
-		return null;
+		if (lst1 == null) {
+			return lst2;
+		}
+		if (lst2 == null) {
+			return lst1;
+		}
+		lst1.next = combineLists(lst2.next, lst1.next);
+		return lst1;
 	}
 
 	/**
@@ -212,7 +218,15 @@ public class C<T> {
 	 * @throws IllegalArgumentException
 	 */
 	public ListItem<T> arrayIntoList(T[] arr) throws IllegalArgumentException {
-		// TODO Your task
-		return null;
+		if (arr == null)
+			throw new IllegalArgumentException("head is null!");
+		if (arr.length == 0) {
+			return null;
+		}
+		ListItem<T> lstbegin = new ListItem<T>(arr[0]);
+		ListItem<T> lstloop = lstbegin;
+		//for-schleife mit lstloop
+		//lstloop=lstloop.next
+		return lstbegin;
 	}
 }
