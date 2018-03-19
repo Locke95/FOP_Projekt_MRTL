@@ -66,11 +66,14 @@ public class ListItem<T> {
 	 */
 	public int getSize() {
 		// TODO Your task. Please delete the following Code when you are implementing this method.
+		
 		System.out.println("\nThe method getSize() in the class data.ListItem is not yet implementated."
 				+ "\nYou first have to implement this method in exercice A1.4.");
 		return -9999;
 	}
 
+	
+	
 	/**
 	 * Inserts an key into this list.
 	 * 
@@ -79,12 +82,18 @@ public class ListItem<T> {
 	 * @throws IllegalArgumentException
 	 *             if key is null
 	 */
-	public void insert(T key) throws IllegalArgumentException {
+	public void insert(T key) throws IllegalArgumentException 
+	{
 		if (key == null)
+		{
 			throw new IllegalArgumentException("Cannot insert null");
+		}
 		else if (this.key == null && this.next == null)
+		{
 			this.key = key;
-		else {
+		}
+		else 
+		{
 			ListItem<T> p = this;
 			while (p.next != null)
 				p = p.next;

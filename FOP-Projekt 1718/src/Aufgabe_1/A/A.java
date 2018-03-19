@@ -35,7 +35,6 @@ public class A<T> {
 		invertTriplesHelper(arr, 0);
 	}
 	
-	//Ändern
 	
 	public void invertTriplesHelper(T[] arr, int index)
 	{
@@ -45,7 +44,8 @@ public class A<T> {
 		}
 		else 
 		{
-			
+			index = 0;
+		
 		}
 	}
 
@@ -59,9 +59,11 @@ public class A<T> {
 	 *            the key to set for the new list head
 	 * @return the new List
 	 */
-	public ListItem<T> insertSingleHead(ListItem<T> lst, T key) {
-		// TODO Your task
-		return null;
+	public ListItem<T> insertSingleHead(ListItem<T> lst, T key) 
+	{
+		ListItem<T> l = new ListItem<T>(key);
+		l.next = lst;
+		return l;
 	}
 
 	/**
@@ -95,7 +97,11 @@ public class A<T> {
 	 * @return the new list
 	 */
 	public ListItem<T> ringShiftLeft(ListItem<T> lst) {
-		// TODO Your task
+		while(lst.next != null)
+		{
+			lst.
+		}
+		
 		return null;
 	}
 
