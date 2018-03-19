@@ -225,7 +225,7 @@ public class C<T> {
 		}
 		ListItem<T> lstbegin = new ListItem<T>(arr[0]);
 		ListItem<T> lstloop = lstbegin;
-		for (int i = 1; i < arr.length; i++){
+		for (int i = 1; i < arr.length; i++) {
 			lstloop.next = (ListItem<T>) arr[i];
 			lstloop = lstloop.next;
 		}

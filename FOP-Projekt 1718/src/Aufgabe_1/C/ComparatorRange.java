@@ -2,6 +2,7 @@ package Aufgabe_1.C;
 
 import java.util.Comparator;
 
+import model.Point;
 import model.angled.AngledGeometricElement;
 
 /**
@@ -16,7 +17,15 @@ public class ComparatorRange implements Comparator<AngledGeometricElement> {
 	 */
 	@Override
 	public int compare(AngledGeometricElement elem1, AngledGeometricElement elem2) {
-		// TODO Your task
-		return 0;
+		return compare(elem1, elem2);
+	}
+	private double perimeter (AngledGeometricElement elem) {
+		int perim = 0;
+		int numberPoints = elem.getNumberOfPoints();
+		Point[] points = elem.getPoints();
+		for(int i = 0; ; i++) {
+			
+		}
+		
 	}
 }
