@@ -96,13 +96,17 @@ public class A<T> {
 	 *            the list to work on
 	 * @return the new list
 	 */
-	public ListItem<T> ringShiftLeft(ListItem<T> lst) {
-		while(lst.next != null)
+	public ListItem<T> ringShiftLeft(ListItem<T> lst) 
+	{
+		ListItem<T> rueckgabe = lst.next;
+		ListItem<T> current = lst; 
+		while(current.next != null)
 		{
-			lst.
+			current = current.next;
 		}
-		
-		return null;
+		current.next = lst;
+		lst.next = null;
+		return rueckgabe;
 	}
 
 	/**
