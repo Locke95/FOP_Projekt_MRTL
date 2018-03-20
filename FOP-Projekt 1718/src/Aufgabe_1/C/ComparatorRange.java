@@ -19,7 +19,7 @@ public class ComparatorRange implements Comparator<AngledGeometricElement> {
 	 */
 	@Override
 	public int compare(AngledGeometricElement elem1, AngledGeometricElement elem2) {
-		if ( range(elem1) < range(elem2))
+		if (range(elem1) < range(elem2))
 			return -1;
 		if (range(elem1) == range(elem2))
 			return 0;
