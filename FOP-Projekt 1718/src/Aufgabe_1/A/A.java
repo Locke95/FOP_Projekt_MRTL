@@ -1,7 +1,7 @@
 package Aufgabe_1.A;
 
 import data.ListItem;
-
+import java.util.Arrays;
 import java.util.Comparator;
 
 /**
@@ -26,29 +26,42 @@ public class A<T> {
 	 * @throws IllegalArgumentException
 	 *             if arr is null
 	 */
+	
 	public void invertTriples(T[] arr) throws IllegalArgumentException
 	{
 		if(arr == null)
 		{
 			throw new IllegalArgumentException("arr ist null");
 		}
-		invertTriplesHelper(arr, 0);
-	}
+		
+		T swap = arr[0];
+		arr[0] = arr[2];
+		arr[2] = swap; 
+		T[] help = Arrays.copyOf(arr, 0); 
+		//T[] help = (T[]) Array.newInstance(arr, 2);
+		System.arraycopy(arr, 0, help, 0, 2);
 	
-	
-	public void invertTriplesHelper(T[] arr, int index)
-	{
-		if(arr.length <= 2)
+		T[] narr = Arrays.copyOfRange(arr, 3, arr.length); 
+		
+		if(narr.length < 2)
 		{
 			return;
 		}
-		else 
+		else
 		{
-			index = 0;
-		
+			invertTriples(narr);
 		}
+		
+		arr = connect(help, narr);
 	}
 
+	public T[] connect(T[] eins, T[] zwei)
+	{
+		T[] result = Arrays.copyOf(eins, eins.length + zwei.length);
+		System.arraycopy(zwei, 0, result, eins.length, zwei.length);
+		return result;
+	}
+	
 	/**
 	 * Fügt ein Listenelement mit dem Schlüsselwert key am Anfang der Liste ein und gibt diesen neuen Listenkopf zurück.
 	 * Hierfür darf ein neues Listenelement erstellt werden. Implementieren Sie diese Methode in konstanter Laufzeit.
