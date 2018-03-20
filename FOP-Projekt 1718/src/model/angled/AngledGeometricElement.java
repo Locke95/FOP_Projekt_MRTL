@@ -16,7 +16,7 @@ public abstract class AngledGeometricElement extends GeometricModelElement {
 
 	@Override
 	protected void calculateRotation(double angle) {
-
+		
 	}
 
 	@Override
