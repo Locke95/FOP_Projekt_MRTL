@@ -37,13 +37,10 @@ public class A<T> {
 		T swap = arr[0];
 		arr[0] = arr[2];
 		arr[2] = swap; 
-		T[] help = Arrays.copyOf(arr, 0); 
-		//T[] help = (T[]) Array.newInstance(arr, 2);
-		System.arraycopy(arr, 0, help, 0, 2);
-	
-		T[] narr = Arrays.copyOfRange(arr, 3, arr.length); 
+		T[] help = Arrays.copyOf(arr, 3); 
+		T[] narr = Arrays.copyOfRange(arr, 3, arr.length - 1); 
 		
-		if(narr.length < 2)
+		if(narr.length < 3)
 		{
 			return;
 		}
@@ -95,8 +92,12 @@ public class A<T> {
 	 * @throws IllegalArgumentException
 	 *             if key or cmp is null
 	 */
-	public ListItem<T> removeElementsEqualX(ListItem<T> lst, T key, Comparator<T> cmp) throws IllegalArgumentException {
-		// TODO Your task
+	public ListItem<T> removeElementsEqualX(ListItem<T> lst, T key, Comparator<T> cmp) throws IllegalArgumentException 
+	{
+		if(cmp == null || lst == null)
+		{
+			throw new IllegalArgumentException("cmp oder die Liste sind null");
+		}
 		return null;
 	}
 
