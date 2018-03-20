@@ -41,7 +41,7 @@ public class Constants {
 	// All names of the model classes. The order must be equal to the order of
 	// GEOMETRIC_MODEL_CLASSES
 	public static final String[] GEOMETRIC_MODEL_CLASS_NAMES = new String[] { GEOMETRIC_ROUND_ELLIPSE_ELEMENT,
-			GEOMETRIC_ROUND_ELLIPSE_CIRCLE_ELEMENT };
+			GEOMETRIC_ROUND_ELLIPSE_CIRCLE_ELEMENT, GEOMETRIC_ANGLED_TRAPEZOID_ELEMENT, GEOMETRIC_ANGLED_ISOSCELES_TRAPEZOID_ELEMENT };
 
 	// All classes of the models. The order must be equal to the order of
 	// GEOMETRIC_MODEL_CLASS_NAMES

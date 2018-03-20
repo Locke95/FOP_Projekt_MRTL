@@ -45,8 +45,8 @@ public abstract class AngledGeometricElement extends GeometricModelElement {
 				points[i].setY(points[i].getY());
 				points[i].setX(2 * midX - points[i].getX());
 			}
-		}
-		else return;
+		} else
+			return;
 	}
 
 	private Point middle() {
@@ -74,20 +74,4 @@ public abstract class AngledGeometricElement extends GeometricModelElement {
 		double midY = (minY + maxY) / 2;
 		return new Point(midX, midY);
 	}
-	// calculateMirroring(String axis)
-	/**
-	 * Zudem soll die Methode calculateMirroring(String axis) in der Klasse
-	 * AngledGeometricElement implementiert werden. Durch den Mittelpunkt der
-	 * Bounding Box des Elements kann eine (imaginäre) horizontale und eine
-	 * (imaginäre) vertikale Linie gezogen werden. Die (imaginäre) horizontale Linie
-	 * wird im Weiteren als x-Achse, die (imaginäre) vertikale Linie als y-Achse
-	 * bezeichnet. In der Methode calculateMirroring(String axis) sollen nun die
-	 * Punkte des Elements so manipuliert werden, dass das Element, an der x- oder
-	 * der y- Achse gespiegelt wird. Das bedeutet, dass die Punkte, die auf der
-	 * einen Seite der Achse liegen, im gleichen Abstand zur Achse, auf die andere
-	 * Seite der Achse verlagert werden sollen. Mit axis wird angegeben, ob an der
-	 * x- oder der y-Achse gespiegelt werden soll. Die entsprechenden Werte für axis
-	 * sind in der Constants-Klasse zu finden (x steht für die x-Achse und y steht
-	 * für die y-Achse).
-	 */
 }
