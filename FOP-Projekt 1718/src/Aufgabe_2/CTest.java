@@ -50,7 +50,7 @@ public class CTest {
 	private Point g1= new Point(2,1);
 	private Point g2= new Point(4,1);
 	private Point g3= new Point(3,4);
-	private TriangleElement groï¿½= new TriangleElement(g1,g2,g3);
+	private TriangleElement groß= new TriangleElement(g1,g2,g3);
 	
 	private Point k1= new Point(1,2);
 	private Point k2= new Point(2,2);
@@ -296,7 +296,7 @@ public class CTest {
 
 	@Test
 	public void compare_Test_2() {
-		Assert.assertEquals(-1, cmp.compare(mittel1, groï¿½));
+		Assert.assertEquals(-1, cmp.compare(mittel1, groß));
 	}
 
 	@Test
