@@ -1,7 +1,5 @@
 package model.angled;
 
-import static org.junit.Assume.assumeNoException;
-
 import model.GeometricModelElement;
 import model.Point;
 import util.Constants;
@@ -48,7 +46,10 @@ public abstract class AngledGeometricElement extends GeometricModelElement {
 		} else
 			return;
 	}
-
+/**
+ * berechnet mittelpunkt der bounding box
+ * @return
+ */
 	private Point middle() {
 		double maxY = this.getPoint(0).getY();
 		double minY = this.getPoint(0).getY();

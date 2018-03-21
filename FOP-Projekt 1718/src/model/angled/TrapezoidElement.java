@@ -31,7 +31,7 @@ public class TrapezoidElement extends AngledGeometricElement {
 	}
 
 	@Override
-	public GeometricModelElement cloneElement() {
+	public TrapezoidElement cloneElement() {
 		TrapezoidElement trapezoid = new TrapezoidElement(a, b, c, d);
 
 		Point[] p = new Point[super.getPoints().length];
