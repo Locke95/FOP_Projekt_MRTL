@@ -2,6 +2,7 @@ package model.angled;
 
 import model.GeometricModelElement;
 import model.Point;
+import util.Constants;
 
 /**
  * @author Tessa Crößmann
@@ -9,9 +10,13 @@ import model.Point;
  */
 public class SquareElement extends AngledGeometricElement
 {
-
-	public SquareElement(Point x, Point y)
+	
+	private Point X;
+	private int Sitelength;
+	
+	public SquareElement(Point x, int sitelength)
 	{
+		x = X;
 		
 	}
 	
@@ -19,8 +24,7 @@ public class SquareElement extends AngledGeometricElement
 	@Override
 	protected String getJSONClassName()
 	{
-		// TODO Auto-generated method stub
-		return null;
+		return Constants.GEOMETRIC_ANGLED_SQUARE_ELEMENT;
 	}
 
 	@Override

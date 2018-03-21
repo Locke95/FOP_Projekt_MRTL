@@ -2,6 +2,7 @@ package model.angled;
 
 import model.GeometricModelElement;
 import model.Point;
+import util.Constants;
 
 /**
  * @author Tessa
@@ -21,8 +22,7 @@ public class RectangleElement extends AngledGeometricElement
 	@Override
 	protected String getJSONClassName()
 	{
-		// TODO Auto-generated method stub
-		return null;
+		return Constants.GEOMETRIC_ANGLED_RECTANGLE_ELEMENT;
 	}
 
 	@Override

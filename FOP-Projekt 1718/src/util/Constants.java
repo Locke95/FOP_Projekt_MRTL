@@ -36,10 +36,12 @@ public class Constants {
 	// name of the model classes
 	public static final String								GEOMETRIC_ROUND_ELLIPSE_ELEMENT					= "geometric.round.EllipseElement";
 	public static final String								GEOMETRIC_ROUND_ELLIPSE_CIRCLE_ELEMENT			= "geometric.round.ellipse.CircleElement";
-
+	public static final String								GEOMETRIC_ANGLED_SQUARE_ELEMENT					= "geometric.angled.SquareElement";
+	public static final String								GEOMETRIC_ANGLED_RECTANGLE_ELEMENT				= "geometric.angled.RectangleElement";
+	
 	// All names of the model classes. The order must be equal to the order of GEOMETRIC_MODEL_CLASSES
 	public static final String[]							GEOMETRIC_MODEL_CLASS_NAMES						= new String[] {
-			GEOMETRIC_ROUND_ELLIPSE_ELEMENT, GEOMETRIC_ROUND_ELLIPSE_CIRCLE_ELEMENT };
+			GEOMETRIC_ROUND_ELLIPSE_ELEMENT, GEOMETRIC_ROUND_ELLIPSE_CIRCLE_ELEMENT, GEOMETRIC_ANGLED_SQUARE_ELEMENT, GEOMETRIC_ANGLED_RECTANGLE_ELEMENT};
 
 	// All classes of the models. The order must be equal to the order of GEOMETRIC_MODEL_CLASS_NAMES
 	@SuppressWarnings("unchecked")
