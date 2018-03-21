@@ -10,7 +10,7 @@ public class EquilateralTriangleElement extends AngledGeometricElement{
 	private Point b;
 	private Point c;
 	
-	//Punkt A soll hierbei der Punkt nï¿½her am Ursprung sein, es word ein dritter Punkt oberhalb der 3 Punkte berechnet
+	//Punkt A soll hierbei der Punkt näher am Ursprung sein, es word ein dritter Punkt oberhalb der 3 Punkte berechnet
 	public EquilateralTriangleElement (Point A, Point B){
 		a=A;
 		b=B;

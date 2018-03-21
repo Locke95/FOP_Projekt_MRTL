@@ -16,7 +16,9 @@ public class TriangleElement extends AngledGeometricElement {
 		c=C;
 		
 	}
-		
+	
+	
+	
 	
 	@Override
 	protected String getJSONClassName() {
@@ -24,11 +26,11 @@ public class TriangleElement extends AngledGeometricElement {
 	}
 	
 	@Override
-	public TriangleElement cloneElement() {
-		TriangleElement triangle = new TriangleElement(a, b, c);
+	public GeometricModelElement cloneElement() {
 		Point CloneC=new Point(c.getX(), c.getY());
 		Point CloneA=new Point(a.getX(), a.getY());
 		Point CloneB=new Point(b.getX(), b.getY());
-		return triangle;
+		TriangleElement Clone= new TriangleElement(CloneA, CloneB, CloneC);
+		return null;
 	}
 }

@@ -16,7 +16,6 @@ import model.angled.TriangleElement;
 import model.round.CircleElement;
 import model.round.EllipseElement;
 import model.round.RoundGeometricElement;
-import util.Constants;
 
 public class CTest {
 	
@@ -50,7 +49,7 @@ public class CTest {
 	private Point g1= new Point(2,1);
 	private Point g2= new Point(4,1);
 	private Point g3= new Point(3,4);
-	private TriangleElement groï¿½= new TriangleElement(g1,g2,g3);
+	private TriangleElement groß= new TriangleElement(g1,g2,g3);
 	
 	private Point k1= new Point(1,2);
 	private Point k2= new Point(2,2);
@@ -111,20 +110,20 @@ public class CTest {
 	 * combine
 	 *****************************************************************/
     
-	//Test: fï¿½r beide Arrays wird eine null Referenz ï¿½bergeben
+	//Test: für beide Arrays wird eine null Referenz übergeben
 	@Test
 	public void combine_Test_1() {
 		arrayAscInt=cInt.combine(null, null, this.cmpInt, null);
 		Assert.	assertArrayEquals(null, arrayAscInt);
 	}
 	
-    //Test: fï¿½r cmp wird eine null Referenz ï¿½bergeben
+    //Test: für cmp wird eine null Referenz übergeben
 	@Test (expected = IllegalArgumentException.class)
 	public void combine_Test_2() {
 		cInt.combine(array1, array2, null, CircleElement.class);
 	}
 	
-    //Test: fï¿½r type wird eine null Referenz ï¿½bergeben
+    //Test: für type wird eine null Referenz übergeben
 	@Test (expected = IllegalArgumentException.class)
 	public void combine_Test_3() {
 		cInt.combine(array1, array2, this.cmpInt, null);
@@ -139,7 +138,7 @@ public class CTest {
 	/*****************************************************************
 	 * insertHead
 	 *****************************************************************/
-    //Test: list ist null wird ï¿½bergeben
+    //Test: list ist null wird übergeben
 	@Test
 	public void insertHead_Test_1() {
 		Assert.assertEquals(0, cInt.insertHead(null, head).key, 0);
@@ -151,7 +150,7 @@ public class CTest {
 	public void insertHead_Test_2() {
        Assert.assertEquals(null, cInt.insertHead(null, null));
 	}
-    //Test: Bedingungen erfï¿½llt
+    //Test: Bedingungen erfüllt
 	@Test
 	public void insertHead_Test_3() {
 		Assert.assertEquals(0, cInt.insertHead(lst, head).key, 0);
@@ -178,7 +177,7 @@ public class CTest {
 	public void removeLast_Test_1() {
       Assert.assertEquals(null, cInt.removeLast(null));
 	}
-    //Test:lst enthï¿½lt nur ein Element
+    //Test:lst enthält nur ein Element
 	@Test
 	public void removeLast_Test_2() {
       Assert.assertEquals(null, cInt.removeLast(oneElem));
@@ -199,7 +198,7 @@ public class CTest {
 	public void invert_Test_1() {
       Assert.assertEquals(null, cInt.invert(null));
 	}
-    //Test: lst enthï¿½lt nur ein Element
+    //Test: lst enthält nur ein Element
 	@Test
 	public void invert_Test_2() {
      Assert.assertEquals(1, cInt.invert(oneElem).key, 0);
@@ -216,7 +215,7 @@ public class CTest {
 	/*****************************************************************
 	 * combineLists
 	 *****************************************************************/
-    //Test unterschiedliche Lï¿½nge
+    //Test unterschiedliche Länge
 	@Test
 	public void combineLists_Test_1() {
      Assert.assertEquals(0, cInt.combineLists(head, lst).key, 0);
@@ -296,7 +295,7 @@ public class CTest {
 
 	@Test
 	public void compare_Test_2() {
-		Assert.assertEquals(-1, cmp.compare(mittel1, groï¿½));
+		Assert.assertEquals(-1, cmp.compare(mittel1, groß));
 	}
 
 	@Test
@@ -310,7 +309,7 @@ public class CTest {
 
 	@Test
 	public void mirror_Test_1() {
-		mittel1.mirror(Constants.Y_AXIS);
+		mittel1.mirror("y");
        Assert.assertEquals(-1, mittel1.getPoints()[0].getX(),0.000001);
        Assert.assertEquals(1, mittel1.getPoints()[0].getY(),0.000001);
        Assert.assertEquals(-3, mittel1.getPoints()[1].getX(),0.000001);
@@ -321,7 +320,7 @@ public class CTest {
 
 	@Test
 	public void mirror_Test_2() {
-		mittel1.mirror(Constants.X_AXIS);
+		mittel1.mirror("x");
 	       Assert.assertEquals(1, mittel1.getPoints()[0].getX(),0.000001);
 	       Assert.assertEquals(-1, mittel1.getPoints()[0].getY(),0.000001);
 	       Assert.assertEquals(3, mittel1.getPoints()[1].getX(),0.000001);
@@ -332,8 +331,8 @@ public class CTest {
 
 	@Test
 	public void mirror_Test_3() {
-		mittel1.mirror(Constants.X_AXIS);
-		mittel1.mirror(Constants.Y_AXIS);
+		mittel1.mirror("x");
+		mittel1.mirror("y");
 	       Assert.assertEquals(-1, mittel1.getPoints()[0].getX(),0.000001);
 	       Assert.assertEquals(-1, mittel1.getPoints()[0].getY(),0.000001);
 	       Assert.assertEquals(-3, mittel1.getPoints()[1].getX(),0.000001);
