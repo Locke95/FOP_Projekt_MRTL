@@ -9,6 +9,7 @@ import java.util.Comparator;
  * 
  * @author Lukas Roehr
  * @author David Koehler
+ * @author Tessa Crößmann
  * @param <T>
  *            Generic Type
  */
@@ -52,6 +53,12 @@ public class A<T> {
 		arr = connect(help, narr);
 	}
 
+	/**
+	 * Die Hilfsmethode fügt 2 Arrays zusammen, indem es das erste auf die gemeinsame Länge erweitert und dann die Arrays zusammenfügt.
+	 * @param eins erstes Array, an welches das 2. angehängt wird.
+	 * @param zwei zweites Array. 
+	 * @return T[] return 
+	 */
 	public T[] connect(T[] eins, T[] zwei)
 	{
 		T[] result = Arrays.copyOf(eins, eins.length + zwei.length);
@@ -92,13 +99,31 @@ public class A<T> {
 	 * @throws IllegalArgumentException
 	 *             if key or cmp is null
 	 */
+	
 	public ListItem<T> removeElementsEqualX(ListItem<T> lst, T key, Comparator<T> cmp) throws IllegalArgumentException 
 	{
-		if(cmp == null || lst == null)
+		if(cmp == null || key == null)
 		{
 			throw new IllegalArgumentException("cmp oder die Liste sind null");
 		}
-		return null;
+		
+		ListItem<T> current = lst; 
+		
+		if(current == null)
+		{
+			return null;
+		}
+		else if(cmp.compare(current.key, key) == 0)
+		{
+			if(current.next == null)
+			{
+				
+			}
+			current.key = null;
+			return removeElementsEqualX(current.next, key, cmp);
+		}
+		
+		return lst;
 	}
 
 	/**
@@ -137,11 +162,43 @@ public class A<T> {
 	 * @throws IllegalArgumentException
 	 *             if lsts is null.
 	 */
-	public ListItem<T> listsInList(ListItem<ListItem<T>> lsts) throws IllegalArgumentException {
-		// TODO Your task
-		return null;
+	
+	public ListItem<T> listsInList(ListItem<ListItem<T>> lsts) throws IllegalArgumentException 
+	{
+		if(lsts == null)
+		{
+			throw new IllegalArgumentException("Die Liste von Listen ist null");
+		}
+		if(lsts.next == null)
+		{
+			return lsts.key;
+		}
+		
+		ListItem<T> lastlist = null;
+		if(lsts.next != null)
+		{
+			lastlist = listsInList(lsts.next);
+		}
+		
+		ListItem<T> nlst = lsts.key;
+		findlast(nlst).next = lastlist;
+		return nlst;
 	}
-
+	
+	/**
+	 * Die Funktion geht die Liste durch um das Letzte Element der Liste zu finden und zurückzugeben.
+	 * @param lst Die übergebene Liste
+	 * @return Das letzte Listenelement. 
+	 */
+	public ListItem<T> findlast(ListItem<T> lst)
+	{
+		if(lst.next != null)
+		{
+			lst = findlast(lst.next);
+		}
+		return lst;
+	}
+	
 	/**
 	 * Die Methode Ã¼bertrÃ¤gt alle Runs des Parameters arr als Liste in eine Liste und gibt den Kopf der erstellten
 	 * Liste von Listen zurÃ¼ck. Nutzen Sie zum Vergleich den Parameter cmp. Falls fÃ¼r arr oder cmp eine null-Referenz
