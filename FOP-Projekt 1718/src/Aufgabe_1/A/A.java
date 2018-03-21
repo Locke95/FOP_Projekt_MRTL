@@ -107,23 +107,36 @@ public class A<T> {
 			throw new IllegalArgumentException("cmp oder die Liste sind null");
 		}
 		
-		ListItem<T> current = lst; 
-		
-		if(current == null)
+		if(lst == null)
 		{
 			return null;
 		}
-		else if(cmp.compare(current.key, key) == 0)
-		{
-			if(current.next == null)
-			{
-				
-			}
-			current.key = null;
-			return removeElementsEqualX(current.next, key, cmp);
-		}
 		
-		return lst;
+		else if(cmp.compare(lst.key, key) == 0)
+		{
+			if(lst.next == null)
+			{
+				return null;
+			}
+			lst = lst.next;
+			return removeElementsEqualX(lst, key, cmp);
+		}
+		else 
+		{
+			if(cmp.compare(lst.next.key, key) == 0)
+			{
+				lst.next = lst.next.next;
+			}
+			if(cmp.compare(lst.next.key, key) != 0)
+			{
+				return removeElementsEqualX(lst.next, key, cmp);
+			}
+			else
+			{
+				return removeElementsEqualX(lst, key, cmp);
+			}
+		}
+		//return lst;
 	}
 
 	/**
