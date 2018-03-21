@@ -10,15 +10,23 @@ import model.Point;
  * 
  * @author Nora Wester
  */
-public abstract class AngledGeometricElement extends GeometricModelElement {
+public abstract class AngledGeometricElement extends GeometricModelElement 
+{
 
 	@Override
-	protected void calculateMove(double xDirection, double yDirection) {
-
+	protected void calculateMove(double xDirection, double yDirection) 
+	{
+		Point[] points = getPoints();
+		for(int i = 0; i < points.length; i++)
+		{
+			points[i].setX(points[i].getX() + xDirection); 
+			points[i].setY(points[i].getY() + yDirection);
+		}
 	}
 
 	@Override
-	protected void calculateRotation(double angle) {
+	protected void calculateRotation(double angle) 
+	{
 
 	}
 
@@ -40,7 +48,8 @@ public abstract class AngledGeometricElement extends GeometricModelElement {
 	}
 
 	@Override
-	protected void calculateMirroring(String axis) {
+	protected void calculateMirroring(String axis) 
+	{
 
 	}
 }
