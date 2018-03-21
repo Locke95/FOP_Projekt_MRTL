@@ -36,6 +36,8 @@ public class Constants {
 	// name of the model classes
 	public static final String								GEOMETRIC_ROUND_ELLIPSE_ELEMENT					= "geometric.round.EllipseElement";
 	public static final String								GEOMETRIC_ROUND_ELLIPSE_CIRCLE_ELEMENT			= "geometric.round.ellipse.CircleElement";
+	public static final String                              GEOMETRIC_ANGLED_EQUILATERAL_TRIANGLE_ELEMENT   = "geometric.angled.equilateral.triangle.TriangleElement";
+	public static final String                              GEOMETRIC_ANGLED_TRIANGLE_ELEMENT               = "geometric.angled.triangle.TriangleElement";
 
 	// All names of the model classes. The order must be equal to the order of GEOMETRIC_MODEL_CLASSES
 	public static final String[]							GEOMETRIC_MODEL_CLASS_NAMES						= new String[] {
