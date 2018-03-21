@@ -12,9 +12,15 @@ import util.Constants;
 public abstract class AngledGeometricElement extends GeometricModelElement {
 
 	@Override
-	protected void calculateMove(double xDirection, double yDirection) {
-
-	}
+	protected void calculateMove(double xDirection, double yDirection) 
+	  {
+	    Point[] points = getPoints();
+	    for(int i = 0; i < points.length; i++)
+	    {
+	      points[i].setX(points[i].getX() + xDirection); 
+	      points[i].setY(points[i].getY() + yDirection);
+	    }
+	  }
 
 	@Override
 	protected void calculateRotation(double angle) {
@@ -51,6 +57,8 @@ public abstract class AngledGeometricElement extends GeometricModelElement {
  * @return
  */
 	private Point middle() {
+		if (this.getPoints().length == 0)
+			return new Point(0,0);
 		double maxY = this.getPoint(0).getY();
 		double minY = this.getPoint(0).getY();
 		double maxX = this.getPoint(0).getX();
