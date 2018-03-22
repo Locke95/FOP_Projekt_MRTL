@@ -37,11 +37,19 @@ public class Constants {
 	public static final String GEOMETRIC_ROUND_ELLIPSE_CIRCLE_ELEMENT = "geometric.round.ellipse.CircleElement";
 	public static final String GEOMETRIC_ANGLED_HEXAGON_ELEMENT = "geometric.angled.hexagon.HexagonElement";
 	public static final String GEOMETRIC_ANGLED_HEXAGON_REGULARHEXAGON_ELEMENT = "geometric.angled.hexagon.regularhexagon.RegularHexagonElement";
-	
+	public static final String GEOMETRIC_ANGLED_EQUILATERAL_TRIANGLE_ELEMENT = "geometric.angled.equilateral.triangle.element";
+	public static final String GEOMETRIC_ANGLED_ISOSCELES_TRAPEZOID_ELEMENT = "geometric.angled.isosceles.trapezoid";
+	public static final String GEOMETRIC_ANGLED_RECTANGLE_ELEMENT = "geometric.angled.rectangle.element";
+	public static final String GEOMETRIC_ANGLED_SQUARE_ELEMENT = "geometric.angled.square.element";
+	public static final String GEOMETRIC_ANGLED_TRAPEZOID_ELEMENT = "geometric.angled.trapezoid.element";
+	public static final String GEOMETRIC_ANGLED_TRIANGLE_ELEMENT = "geometric.angled.triangle.element";
+
 	// All names of the model classes. The order must be equal to the order of
 	// GEOMETRIC_MODEL_CLASSES
 	public static final String[] GEOMETRIC_MODEL_CLASS_NAMES = new String[] { GEOMETRIC_ROUND_ELLIPSE_ELEMENT,
-			GEOMETRIC_ROUND_ELLIPSE_CIRCLE_ELEMENT ,GEOMETRIC_ANGLED_HEXAGON_REGULARHEXAGON_ELEMENT,GEOMETRIC_ANGLED_HEXAGON_ELEMENT};
+			GEOMETRIC_ROUND_ELLIPSE_CIRCLE_ELEMENT, GEOMETRIC_ANGLED_HEXAGON_REGULARHEXAGON_ELEMENT,
+			GEOMETRIC_ANGLED_HEXAGON_ELEMENT, GEOMETRIC_ANGLED_EQUILATERAL_TRIANGLE_ELEMENT,
+			GEOMETRIC_ANGLED_ISOSCELES_TRAPEZOID_ELEMENT, GEOMETRIC_ANGLED_RECTANGLE_ELEMENT, GEOMETRIC_ANGLED_SQUARE_ELEMENT, GEOMETRIC_ANGLED_TRAPEZOID_ELEMENT, GEOMETRIC_ANGLED_TRIANGLE_ELEMENT};
 
 	// All classes of the models. The order must be equal to the order of
 	// GEOMETRIC_MODEL_CLASS_NAMES
